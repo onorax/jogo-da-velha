@@ -2,79 +2,199 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="description" content="Simple weight converter">
-  <title>Weight Converter</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="description" content="Simple weight converter">
+    <title>Weight Converter</title>
 
-  <link rel="stylesheet" href="css/app.css">
-  <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+    <!-- <link rel="stylesheet" href="css/app.css"> -->
+    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
 
-  <!-- Open Graph-->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://bolaji-wc.netlify.com/">
-  <meta property="og:title" content="Weight Converter">
-  <meta property="og:image" content="img/favicon.png">
-  <meta property="og:description" content="Simple weight converter">
-  <meta property="og:site_name" content="Weight Converter">
-  <!-- Next tags are optional but recommended -->
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
+    <!-- Open Graph-->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bolaji-wc.netlify.com/">
+    <meta property="og:title" content="Weight Converter">
+    <meta property="og:image" content="img/favicon.png">
+    <meta property="og:description" content="Simple weight converter">
+    <meta property="og:site_name" content="Weight Converter">
+    <!-- Next tags are optional but recommended -->
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
 
-  <!-- Twitter cards-->
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:site" content="@iambolajiayo">
-  <meta name="twitter:creator" content="iambolajiayo">
-  <meta name="twitter:url" content="https://bolaji-wc.netlify.com/">
-  <meta name="twitter:title" content="Weight Converter">
-  <meta name="twitter:description" content="Simple weight converter">
-  <meta name="twitter:image" content="img/favicon.png">
+    <!-- Twitter cards-->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@iambolajiayo">
+    <meta name="twitter:creator" content="iambolajiayo">
+    <meta name="twitter:url" content="https://bolaji-wc.netlify.com/">
+    <meta name="twitter:title" content="Weight Converter">
+    <meta name="twitter:description" content="Simple weight converter">
+    <meta name="twitter:image" content="img/favicon.png">
 
-  <link rel="manifest" href="/manifest.json" />
-  <meta name="theme-color" content="#333" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#333" />
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+              <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+              <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+            <![endif]-->
+
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6 offset-md-3">
-        <h1 class="display-4 text-center mb-3">
-          Weight Converter
-        </h1>
-        <form>
-          <div class="form-group">
-            <input type="number" class="form-control form-control-lg" id="lbsInput" placeholder="Enter pounds.."
-              required>
-          </div>
-        </form>
-        <div id="output">
-          <div class="card bg-primary mb-2">
-            <div class="card-block">
-              <h4>Grams:</h4>
-              <div id="gOutput"></div>
-            </div>
-          </div>
+    <section class="jogo">
+        <div class="container d-flex justfy-content-center">
 
-          <div class="card bg-success mb-2">
-            <div class="card-block">
-              <h4>Kilograms:</h4>
-              <div id="kgOutput"></div>
-            </div>
-          </div>
+            <div class="row user-color" style="text-align: center; background-color: #ffff00; margin-bottom:30px ">
 
-          <div class="card bg-danger mb-2">
-            <div class="card-block">
-              <h4>Ounces:</h4>
-              <div id="ozOutput"></div>
+                <div class="col-md-12 user-color" style="background-color: #ffff00; height:50px;margin-bottom:20px; font-weight: 600; font-size: 30px" id='simbolo'></div>
+                <div class="col-md-12 user-color" style="background-color: #ffff00; height:50px;margin-bottom:20px; font-weight: 600; font-size: 30px" id='player'> </div>
+
             </div>
-          </div>
+
+            <div class="row">
+                <div class="col-md-4 col-sm-4 velha" id="0-0" style="border:1px solid #000000;"></div>
+                <div class="col-md-4 col-sm-4 velha" id="0-1" style="border:1px solid #000000;"></div>
+                <div class="col-md-4 col-sm-4 velha" id="0-2" style="border:1px solid #000000;"></div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4 col-sm-4 velha" id="1-0" style="border:1px solid #000000;"></div>
+                <div class="col-md-4 col-sm-4 velha" id="1-1" style="border:1px solid #000000;"></div>
+                <div class="col-md-4 col-sm-4 velha" id="1-2" style="border:1px solid #000000;"></div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4 col-sm-4 velha" id="2-0" style="border:1px solid #000000;"></div>
+                <div class="col-md-4 col-sm-4 velha" id="2-1" style="border:1px solid #000000;"></div>
+                <div class="col-md-4 col-sm-4 velha" id="2-2" style="border:1px solid #000000;"></div>
+            </div>
+
+
         </div>
-      </div>
-    </div>
-  </div>
 
-  <script src="js/app.js"></script>
+    </section>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+        let p = [
+            ['p1', 'X'],
+            ['p2', 'O']
+        ];
+        let player = Math.floor(Math.random() * 2);
+        let aux_player;
+
+        var items = [
+            [null, null, null],
+            [null, null, null],
+            [null, null, null]
+        ];
+
+
+        $(document).ready(function() {
+
+            let p1 = localStorage.getItem('p1');
+            let p2 = localStorage.getItem('p2');
+
+            localStorage.setItem('currentPlayer', player);
+
+
+            if (p1 == null || p2 == null) {
+
+                location.href = 'home.html';
+
+            } else {
+
+                $('#player').text(localStorage.getItem(p[player][0]));
+                $('#simbolo').text(p[player][1]);
+
+
+            }
+
+
+        });
+
+        $('.velha').click(function() {
+
+            aux_player = localStorage.getItem('currentPlayer');
+
+            if (aux_player === '0') {
+
+                localStorage.setItem('currentPlayer', 1);
+
+            } else {
+
+                localStorage.setItem('currentPlayer', 0);
+
+            }
+
+            $('#player').text(aux_player);
+            $('#simbolo').text(p[aux_player][1]);
+
+            $(this).html(p[aux_player][1]);
+            $('.user-color').css('background-color', '#ffff00');
+            $('.user-color').html(p[aux_player][1]);
+
+
+            matrizPosicao = this.id.split('-', 2);
+
+            items[matrizPosicao[0]][matrizPosicao[1]] = aux_player;
+
+            let verifica = verificaMatriz(aux_player);
+
+            if (verifica.toString() == 0) {
+
+                $('.jogo').html("<span class='winner'> " + localStorage.getItem('p1') + " <br>é o vencedor</span>");
+
+            }
+
+            if (verifica.toString() == 1) {
+
+                $('.jogo').html("<span class='winner'> " + localStorage.getItem('p2') + " <br>é o vencedor</span>");
+
+            }
+
+        });
+
+        function verificaMatriz(simbolo) {
+
+            if (items[0][0] == simbolo && items[0][1] == simbolo && items[0][2] == simbolo)
+                return simbolo;
+
+            if (items[1][0] == simbolo && items[1][1] == simbolo && items[1][2] == simbolo)
+                return simbolo;
+
+            if (items[2][0] == simbolo && items[2][1] == simbolo && items[2][2] == simbolo)
+                return simbolo;
+
+            if (items[0][0] == simbolo && items[1][1] == simbolo && items[2][2] == simbolo)
+                return simbolo;
+
+            if (items[2][0] == simbolo && items[1][1] == simbolo && items[0][2] == simbolo)
+                return simbolo;
+
+            if (items[0][0] == simbolo && items[1][0] == simbolo && items[2][0] == simbolo)
+                return simbolo;
+
+            if (items[0][1] == simbolo && items[1][1] == simbolo && items[2][1] == simbolo)
+                return simbolo;
+
+            if (items[0][2] == simbolo && items[1][2] == simbolo && items[2][2] == simbolo)
+                return simbolo;
+
+            return false;
+
+        }
+    </script>
+
 </body>
 
 </html>

@@ -1,0 +1,23 @@
+    .row {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: center;
+    }
+    
+    .velha {
+        padding: 30px;
+    }
+    
+    section {
+        width: 100vw;
+        height: 100vh!important;
+        display: flex;
+        align-items: center;
+    }
+    
+    .winner {
+        width: 100vh;
+        font-size: 50px;
+        margin: auto;
+        text-align: center;
+    }

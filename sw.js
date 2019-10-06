@@ -23,7 +23,7 @@ if (workbox) {
      while making sure they are updated in the background for the next use.
     */
     workbox.routing.registerRoute(
-    // cache js, css, scc files
+        // cache js, css, scc files
         /.*\.(?:css|js|scss|)/,
         // use cache but update in the background ASAP
         new workbox.strategies.StaleWhileRevalidate({

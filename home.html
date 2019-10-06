@@ -12,7 +12,7 @@
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -32,49 +32,50 @@
 </head>
 
 <body>
+    <section style="height: 100vh;background-color: #50a050;display: flex;justify-content: center;align-items: center;">
+        <div class="container">
 
-    <div class="container">
+            <div class="row">
+                <h1 style="text-align: center;">JOGO DA VELHA</h1>
+                <div class="col-md-12">
 
-        <div class="row">
+                    <div class="form-group">
 
-            <div class="col-md-6">
+                        <label for="exampleInputEmail1">Jogador Azul (X)</label>
+                        <input type="text" class="form-control" id="p1" placeholder="Username jogador X">
 
-                <div class="form-group">
+                    </div>
 
-                    <label for="exampleInputEmail1">Jogador Azul (X)</label>
-                    <input type="text" class="form-control" id="p1" aria-describedby="emailHelp" placeholder="Enter email">
+                </div>
+
+
+
+                <div class="col-md-12">
+
+                    <div class="form-group">
+
+                        <label for="exampleInputEmail1">Jogador Vermelho (O)</label>
+                        <input type="text" class="form-control" id="p2" placeholder="Username jogador O">
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+            <div class="row">
+
+                <div class="col-md-12" style="display: flex;justify-content: center;">
+
+                    <button id="btn-jogar" class="btn btn-primary" style="margin: auto">Jogar</button>
 
                 </div>
 
             </div>
 
-
-
-            <div class="col-md-6">
-
-                <div class="form-group">
-
-                    <label for="exampleInputEmail1">Jogador Vermelho (O)</label>
-                    <input type="text" class="form-control" id="p2" aria-describedby="emailHelp" placeholder="Enter email">
-
-                </div>
-
-            </div>
-
-
         </div>
-
-        <div class="row d-flex justify-content-center">
-
-            <div class="col-md-6">
-
-                <button id="btn-jogar" class="btn btn-primary" style="margin: auto">Jogar</button>
-
-            </div>
-
-        </div>
-
-    </div>
+    </section>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
@@ -85,10 +86,20 @@
     <script type="text/javascript">
         $('#btn-jogar').click(function() {
 
-            localStorage.setItem('p1', $('#p1').val());
-            localStorage.setItem('p2', $('#p2').val());
+            if ($('#p1').val() === "" || $('#p2').val() == "") {
+                Swal.fire({
+                    type: 'error',
+                    title: 'Oops...',
+                    text: 'Entre com os nomes dos jogadores antes',
+                })
+            } else {
+                localStorage.setItem('p1', $('#p1').val());
+                localStorage.setItem('p2', $('#p2').val());
 
-            location.href = 'index.html';
+                location.href = 'index.html';
+
+            }
+
 
         });
     </script>

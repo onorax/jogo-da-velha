@@ -46,33 +46,46 @@
 </head>
 
 <body>
-    <section class="jogo">
-        <div class="container d-flex justfy-content-center">
+    <section style="height: 100vh;background-color: #50a050;">
+        <div class="container" style="align-items: center;height: 100vh;display: flex;justify-content: center;flex-direction: column;">
+            <!-- <div class="row user-color" style="text-align: center; background-color: #ffff00; margin-bottom:30px ">
 
-            <div class="row user-color" style="text-align: center; background-color: #ffff00; margin-bottom:30px ">
+                <div class="col-md-12 user-color" style="height:50px;margin-bottom:20px; font-weight: 600; font-size: 30px" id='simbolo'></div>
+                <div class="col-md-12 user-color" style="height:50px;margin-bottom:20px; font-weight: 600; font-size: 30px" id='player'> </div>
 
-                <div class="col-md-12 user-color" style="background-color: #ffff00; height:50px;margin-bottom:20px; font-weight: 600; font-size: 30px" id='simbolo'></div>
-                <div class="col-md-12 user-color" style="background-color: #ffff00; height:50px;margin-bottom:20px; font-weight: 600; font-size: 30px" id='player'> </div>
+            </div> -->
+
+            <div class="row" style="width: 100%;background-color: white;margin-bottom: 5pc;border-radius: 15px;">
+                <div class="col-md-12 user-color" style="margin-bottom:20px; font-weight: 600; font-size: 30px;display: flex;justify-content: center;">Simbolo - <span id="simbolo"></span>
+
+                </div>
+                <div class="col-md-12 user-color" style="margin-bottom:20px; font-weight: 600; font-size: 30px;display: flex;justify-content: center;"> Jogador - <span id="player"></span>
+
+                </div>
+            </div>
+
+            <div class="alinhamento jogo" style="display: flex;flex-direction: column;align-items: center;">
+
+                <div class="row">
+                    <div class="col-md-4 col-sm-4 velha" id="0-0"></div>
+                    <div class="col-md-4 col-sm-4 velha" id="0-1"></div>
+                    <div class="col-md-4 col-sm-4 velha" id="0-2"></div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4 col-sm-4 velha" id="1-0"></div>
+                    <div class="col-md-4 col-sm-4 velha" id="1-1"></div>
+                    <div class="col-md-4 col-sm-4 velha" id="1-2"></div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4 col-sm-4 velha" style="border-bottom: 0px;" id="2-0"></div>
+                    <div class="col-md-4 col-sm-4 velha" style="border-bottom: 0px;" id="2-1"></div>
+                    <div class="col-md-4 col-sm-4 velha" style="border-bottom: 0px;" id="2-2"></div>
+                </div>
 
             </div>
 
-            <div class="row">
-                <div class="col-md-4 col-sm-4 velha" id="0-0" style="border:1px solid #000000;"></div>
-                <div class="col-md-4 col-sm-4 velha" id="0-1" style="border:1px solid #000000;"></div>
-                <div class="col-md-4 col-sm-4 velha" id="0-2" style="border:1px solid #000000;"></div>
-            </div>
-
-            <div class="row">
-                <div class="col-md-4 col-sm-4 velha" id="1-0" style="border:1px solid #000000;"></div>
-                <div class="col-md-4 col-sm-4 velha" id="1-1" style="border:1px solid #000000;"></div>
-                <div class="col-md-4 col-sm-4 velha" id="1-2" style="border:1px solid #000000;"></div>
-            </div>
-
-            <div class="row">
-                <div class="col-md-4 col-sm-4 velha" id="2-0" style="border:1px solid #000000;"></div>
-                <div class="col-md-4 col-sm-4 velha" id="2-1" style="border:1px solid #000000;"></div>
-                <div class="col-md-4 col-sm-4 velha" id="2-2" style="border:1px solid #000000;"></div>
-            </div>
 
 
         </div>
@@ -136,13 +149,14 @@
                 localStorage.setItem('currentPlayer', 0);
 
             }
+            // console.log(p[aux_player]);
 
-            $('#player').text(aux_player);
+            $('#player').text(localStorage.getItem(p[aux_player][0]));
             $('#simbolo').text(p[aux_player][1]);
 
             $(this).html(p[aux_player][1]);
-            $('.user-color').css('background-color', '#ffff00');
-            $('.user-color').html(p[aux_player][1]);
+            // $('.user-color').css('background-color', '#ffff00');
+            // $('.user-color').html(p[aux_player][1]);
 
 
             matrizPosicao = this.id.split('-', 2);
@@ -151,15 +165,17 @@
 
             let verifica = verificaMatriz(aux_player);
 
+
+
             if (verifica.toString() == 0) {
 
-                $('.jogo').html("<span class='winner'> " + localStorage.getItem('p1') + " <br>é o vencedor</span><br><button onclick='location.reload()' >Jogar Novamente</button>");
+                $('.jogo').html("<span class='winner'> " + localStorage.getItem('p1') + " <br>é o vencedor</span><br><img src='img/winner.png' style='width:50%;'><br><button type='button' onclick='location.reload()' class='btn btn-primary'>Jogar novamente</button>");
 
             }
 
             if (verifica.toString() == 1) {
 
-                $('.jogo').html("<span class='winner'> " + localStorage.getItem('p2') + " <br>é o vencedor</span><br><button onclick='location.reload()' >Jogar Novamente</button>");
+                $('.jogo').html("<span class='winner'> " + localStorage.getItem('p2') + " <br>é o vencedor</span><br><img src='img/winner.png' style='width:50%;'><br><button type='button' onclick='location.reload()' class='btn btn-primary'>Jogar novamente</button>");
 
             }
 

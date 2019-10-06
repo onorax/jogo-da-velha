@@ -33,6 +33,7 @@
 
 
     <!-- Bootstrap -->
+    <script src="https://kit.fontawesome.com/353fcc5e31.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -46,32 +47,33 @@
 </head>
 
 <body>
+
     <section class="jogo">
+
         <div class="container d-flex justfy-content-center">
 
-            <div class="row user-color" style="text-align: center; background-color: #ffff00; margin-bottom:30px ">
+            <div class="row user-color" style="text-align: center; margin-bottom:80px; margin-top:20px">
 
-                <div class="col-md-12 user-color" style="background-color: #ffff00; height:50px;margin-bottom:20px; font-weight: 600; font-size: 30px" id='simbolo'></div>
-                <div class="col-md-12 user-color" style="background-color: #ffff00; height:50px;margin-bottom:20px; font-weight: 600; font-size: 30px" id='player'> </div>
+                <div class="col-md-12 user-color" style="height:50px;margin-bottom:20px; font-weight: 600; font-size: 30px" id='player'> </div>
 
             </div>
 
             <div class="row">
-                <div class="col-md-4 col-sm-4 velha" id="0-0" style="border:1px solid #000000;"></div>
-                <div class="col-md-4 col-sm-4 velha" id="0-1" style="border:1px solid #000000;"></div>
-                <div class="col-md-4 col-sm-4 velha" id="0-2" style="border:1px solid #000000;"></div>
+                <div class="col-md-4 col-sm-4 velha" id="0-0" style="border:1px solid #000000;"> </div>
+                <div class="col-md-4 col-sm-4 velha" id="0-1" style="border:1px solid #000000;"> </div>
+                <div class="col-md-4 col-sm-4 velha" id="0-2" style="border:1px solid #000000;"> </div>
             </div>
 
             <div class="row">
-                <div class="col-md-4 col-sm-4 velha" id="1-0" style="border:1px solid #000000;"></div>
-                <div class="col-md-4 col-sm-4 velha" id="1-1" style="border:1px solid #000000;"></div>
-                <div class="col-md-4 col-sm-4 velha" id="1-2" style="border:1px solid #000000;"></div>
+                <div class="col-md-4 col-sm-4 velha" id="1-0" style="border:1px solid #000000;"> </div>
+                <div class="col-md-4 col-sm-4 velha" id="1-1" style="border:1px solid #000000;"> </div>
+                <div class="col-md-4 col-sm-4 velha" id="1-2" style="border:1px solid #000000;"> </div>
             </div>
 
             <div class="row">
-                <div class="col-md-4 col-sm-4 velha" id="2-0" style="border:1px solid #000000;"></div>
-                <div class="col-md-4 col-sm-4 velha" id="2-1" style="border:1px solid #000000;"></div>
-                <div class="col-md-4 col-sm-4 velha" id="2-2" style="border:1px solid #000000;"></div>
+                <div class="col-md-4 col-sm-4 velha" id="2-0" style="border:1px solid #000000;"> </div>
+                <div class="col-md-4 col-sm-4 velha" id="2-1" style="border:1px solid #000000;"> </div>
+                <div class="col-md-4 col-sm-4 velha" id="2-2" style="border:1px solid #000000;"> </div>
             </div>
 
 
@@ -114,9 +116,7 @@
 
             } else {
 
-                $('#player').text(localStorage.getItem(p[player][0]));
-                $('#simbolo').text(p[player][1]);
-
+                $('#player').html('Jogador da vez <br>' + localStorage.getItem(p[player][0]) + '<br>' + p[player][1]);
 
             }
 
@@ -137,13 +137,11 @@
 
             }
 
-            $('#player').text(aux_player);
-            $('#simbolo').text(p[aux_player][1]);
+            $('#player').html('Jogador da vez <br>' + localStorage.getItem(p[player][0]) + '<br>' + p[player][1]);
 
-            $(this).html(p[aux_player][1]);
-            $('.user-color').css('background-color', '#ffff00');
-            $('.user-color').html(p[aux_player][1]);
+            icon = aux_player - 0 ? '<i class="fas fa-circle" style="position: absolute;"></i>' : '<i class="fas fa-times" style="position: absolute;"></i>';
 
+            $(this).html(icon);
 
             matrizPosicao = this.id.split('-', 2);
 
@@ -153,13 +151,13 @@
 
             if (verifica.toString() == 0) {
 
-                $('.jogo').html("<span class='winner'> " + localStorage.getItem('p1') + " <br>é o vencedor</span><br><button onclick='location.reload()' >Jogar Novamente</button>");
+                $('.jogo').html("<span class='winner'> <div class='col-md-12'> " + localStorage.getItem('p1') + " <br>é o vencedor</span><br><button onclick='location.reload()' >Jogar Novamente</button> </div>");
 
             }
 
             if (verifica.toString() == 1) {
 
-                $('.jogo').html("<span class='winner'> " + localStorage.getItem('p2') + " <br>é o vencedor</span><br><button onclick='location.reload()' >Jogar Novamente</button>");
+                $('.jogo').html("<span class='winner'> <div class='col-md-12'> " + localStorage.getItem('p2') + " <br>é o vencedor</span><br><button onclick='location.reload()' >Jogar Novamente</button> </div>");
 
             }
 

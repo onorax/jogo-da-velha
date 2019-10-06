@@ -19,14 +19,38 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+    <link href="https://fonts.googleapis.com/css?family=Sigmar+One&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/353fcc5e31.js" crossorigin="anonymous"></script>
+
     <style media="screen">
+
         .velha {
+
             width: 45px;
+
         }
-        
+
         .velhatr {
+
             height: 45px;
+
         }
+
+        .bg-red {
+
+            background-color: #FF0000;
+
+        }
+
+        .bg-blue {
+
+            background-color: #0000FF;
+
+        }
+
+
+
     </style>
 
 </head>
@@ -35,14 +59,20 @@
 
     <div class="container">
 
+      <div class="row"  style="padding:50px">
+
+        <h1 style="font-family: 'Sigmar One', cursive; margin:auto;    text-align: center;">Jogo da Velha</h1>
+
+      </div>
+
         <div class="row">
 
-            <div class="col-md-6">
+            <div class="col-md-12 bg-blue"  style="padding-top:20px;padding-bottom:20px">
 
-                <div class="form-group">
+                <div class="form-group" >
 
-                    <label for="exampleInputEmail1">Jogador Azul (X)</label>
-                    <input type="text" class="form-control" id="p1" aria-describedby="emailHelp" placeholder="Enter email">
+                    <label for="exampleInputEmail1" style="font-size:25px;color:#FFFFFF;">Jogador Azul (X)</label>
+                    <input type="text" class="form-control" id="p1" aria-describedby="emailHelp" placeholder="Usuario Jogador 1">
 
                 </div>
 
@@ -50,12 +80,12 @@
 
 
 
-            <div class="col-md-6">
+            <div class="col-md-12 bg-red"  style="padding-top:20px;padding-bottom:20px">
 
                 <div class="form-group">
 
-                    <label for="exampleInputEmail1">Jogador Vermelho (O)</label>
-                    <input type="text" class="form-control" id="p2" aria-describedby="emailHelp" placeholder="Enter email">
+                    <label for="exampleInputEmail1" style="font-size:25px;color:#FFFFFF;">Jogador Vermelho (O)</label>
+                    <input type="text" class="form-control" id="p2" aria-describedby="emailHelp" placeholder="Usuario Jogador 2">
 
                 </div>
 
@@ -68,7 +98,7 @@
 
             <div class="col-md-6">
 
-                <button id="btn-jogar" class="btn btn-primary" style="margin: auto">Jogar</button>
+                <button id="btn-jogar" class="btn btn-primary" style="margin: auto; width:100%;font-size:30px">Jogar</button>
 
             </div>
 

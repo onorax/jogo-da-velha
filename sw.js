@@ -1,7 +1,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.0.0/workbox-sw.js");
 
 if (workbox) {
-    console.log("Yay! Workbox is loaded !");
+    console.log("Service Worker Startado");
     workbox.precaching.precacheAndRoute([]);
 
     /*  cache images in the e.g others folder; edit to other folders you got
@@ -19,15 +19,9 @@ if (workbox) {
             ]
         })
     );
-    /* Make your JS and CSS âš¡ fast by returning the assets from the cache,
-     while making sure they are updated in the background for the next use.
-    */
     workbox.routing.registerRoute(
-        // cache js, css, scc files
         /.*\.(?:css|js|scss|)/,
-        // use cache but update in the background ASAP
         new workbox.strategies.StaleWhileRevalidate({
-            // use a custom cache name
             cacheName: "assets",
         })
     );
@@ -56,5 +50,5 @@ if (workbox) {
     workbox.core.clientsClaim();
 
 } else {
-    console.log("Oops! Workbox didn't load ðŸ‘º");
+    console.log("Service Worker não funcionou");
 }

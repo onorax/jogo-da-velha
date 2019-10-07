@@ -21,7 +21,7 @@
         -o-box-sizing: border-box;
     }
     
-    .alinhamento .row div {
+    .alinhamento .bordinha div {
         border-left: 5px solid #cccbcb;
         border-bottom: 5px solid #cccbcb;
         float: left;
@@ -39,4 +39,40 @@
     
     .last div {
         border-bottom: none;
+    }
+    
+    article,
+    aside,
+    details,
+    figcaption,
+    figure,
+    footer,
+    header,
+    hgroup,
+    main,
+    menu,
+    nav,
+    section,
+    summary {
+        display: block;
+        height: 100vh!important;
+    }
+    
+    @media (max-width: 320px) {
+        article,
+        aside,
+        details,
+        figcaption,
+        figure,
+        footer,
+        header,
+        hgroup,
+        main,
+        menu,
+        nav,
+        section,
+        summary {
+            display: block;
+            height: 100%!important;
+        }
     }

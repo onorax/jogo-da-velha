@@ -27,8 +27,8 @@
 </head>
 
 <body>
-    <section style="height: 100vh;background-color: #50a050;">
-        <div class="container" style="align-items: center;height: 100vh;display: flex;justify-content: center;flex-direction: column;">
+    <section style="background-color: #50a050;display: flex;justify-content: center;align-items: center;">
+        <div class="container" style="display: flex;justify-content: center;flex-wrap: wrap;align-items: center;">
 
             <div class="row" style="width: 100%;background-color: white;margin-bottom: 5pc;border-radius: 15px;">
                 <div class="col-md-12 user-color" style="margin-bottom:20px; font-weight: 600; font-size: 30px;display: flex;justify-content: center;">Simbolo - <span id="simbolo"></span>
@@ -41,47 +41,41 @@
 
             <div class="alinhamento jogo" style="display: flex;flex-direction: column;align-items: center;">
 
-                <div class="row">
+                <div class="row bordinha">
                     <div class="col-md-4 col-sm-4 velha" id="0-0"></div>
                     <div class="col-md-4 col-sm-4 velha" id="0-1"></div>
                     <div class="col-md-4 col-sm-4 velha" id="0-2"></div>
                 </div>
 
-                <div class="row">
+                <div class="row bordinha">
                     <div class="col-md-4 col-sm-4 velha" id="1-0"></div>
                     <div class="col-md-4 col-sm-4 velha" id="1-1"></div>
                     <div class="col-md-4 col-sm-4 velha" id="1-2"></div>
                 </div>
 
-                <div class="row">
+                <div class="row bordinha">
                     <div class="col-md-4 col-sm-4 velha" style="border-bottom: 0px;" id="2-0"></div>
                     <div class="col-md-4 col-sm-4 velha" style="border-bottom: 0px;" id="2-1"></div>
                     <div class="col-md-4 col-sm-4 velha" style="border-bottom: 0px;" id="2-2"></div>
                 </div>
 
-            </div>
 
+                <div class="row d-flex justify-content-center" style="padding-top: 4pc;">
 
+                    <div class="col-md-6" style="display: flex;justify-content: center;">
 
-            <div class="row" style="display: flex;flex-direction: row;align-items: center; justify-content: center; padding-top: 3pc;">
+                        <a href="home.html" id="btn-jogar" class="btn btn-primary" style="margin: auto">Recomeçar</a>
 
-                <div class="col-md-6" style="display: flex;justify-content: center;">
+                    </div>
+                    <div class="col-md-6" style="display: flex;justify-content: center;">
 
-                    <a href="home.html" id="btn-jogar" class="btn btn-primary" style="margin: auto">Recomeçar</a>
+                        <a href="index.html" id="btn-jogar" class="btn btn-primary" style="margin: auto">Sair</a>
+
+                    </div>
 
                 </div>
-                <div class="col-md-6" style="display: flex;justify-content: center;">
 
-                    <a href="index.html" id="btn-jogar" class="btn btn-primary" style="margin: auto">Sair</a>
-
-                </div>
-
-            </div>
-
-            <div class="row">
-
-
-
+                <div class="history"></div>
             </div>
 
 
@@ -102,6 +96,8 @@
         ];
         let player = Math.floor(Math.random() * 2);
         let aux_player;
+        let history = [];
+        let aux_history = [];
 
         let matrizPreechida = false;
 
@@ -113,6 +109,9 @@
 
 
         $(document).ready(function() {
+
+            console.log(localStorage);
+
 
             let p1 = localStorage.getItem('p1');
             let p2 = localStorage.getItem('p2');
@@ -165,11 +164,18 @@
             if (verifica.toString() == 0) {
 
                 $('.jogo').html("<span class='winner'> " + localStorage.getItem('p1') + " <br>é o vencedor</span><br><img src='img/winner.png' style='width:50%;'><br>");
+                aux_history = [localStorage.getItem('p1'), localStorage.getItem('p2'), localStorage.getItem('p1')];
 
+                history.push(aux_history);
+                localStorage.setItem('history', JSON.stringify(history));
             }
             if (verifica.toString() == 1) {
 
                 $('.jogo').html("<span class='winner'> " + localStorage.getItem('p2') + " <br>é o vencedor</span><br><img src='img/winner.png' style='width:50%;'><br>");
+                aux_history = [localStorage.getItem('p2'), localStorage.getItem('p1'), localStorage.getItem('p2')];
+
+                history.push(aux_history);
+                localStorage.setItem('history', JSON.stringify(history));
 
             }
 

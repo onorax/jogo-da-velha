@@ -8,28 +8,16 @@
     <meta name="description" content="Jogo da Velha">
     <title>Jogo da Velha</title>
 
-    <!-- <link rel="stylesheet" href="css/app.css"> -->
     <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
 
-    <!-- Open Graph-->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://bolaji-wc.netlify.com/">
     <meta property="og:title" content="Jogo da Velha">
     <meta property="og:image" content="img/favicon.png">
     <meta property="og:description" content="Jogo da Velha">
     <meta property="og:site_name" content="Jogo da Velha">
-    <!-- Next tags are optional but recommended -->
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-
-    <!-- Twitter cards-->
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:site" content="@iambolajiayo">
-    <meta name="twitter:creator" content="iambolajiayo">
-    <meta name="twitter:url" content="https://bolaji-wc.netlify.com/">
-    <meta name="twitter:title" content="Jogo da Velha">
-    <meta name="twitter:description" content="Jogo da Velha">
-    <meta name="twitter:image" content="img/favicon.png">
 
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
@@ -102,9 +90,8 @@
 
     </section>
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
+
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
 
 
@@ -161,14 +148,11 @@
                 localStorage.setItem('currentPlayer', 0);
 
             }
-            // console.log(p[aux_player]);
 
             $('#player').text(localStorage.getItem(p[aux_player][0]));
             $('#simbolo').text(p[aux_player][1]);
 
             $(this).html(p[aux_player][1]);
-            // $('.user-color').css('background-color', '#ffff00');
-            // $('.user-color').html(p[aux_player][1]);
 
 
             matrizPosicao = this.id.split('-', 2);
@@ -180,17 +164,17 @@
 
             if (verifica.toString() == 0) {
 
-                $('.jogo').html("<span class='winner'> " + localStorage.getItem('p1') + " <br>é o vencedor</span><br><img src='img/winner.png' style='width:50%;'><br><button type='button' onclick='location.reload()' class='btn btn-primary'>Jogar novamente</button>");
+                $('.jogo').html("<span class='winner'> " + localStorage.getItem('p1') + " <br>é o vencedor</span><br><img src='img/winner.png' style='width:50%;'><br>");
 
             }
             if (verifica.toString() == 1) {
 
-                $('.jogo').html("<span class='winner'> " + localStorage.getItem('p2') + " <br>é o vencedor</span><br><img src='img/winner.png' style='width:50%;'><br><button type='button' onclick='location.reload()' class='btn btn-primary'>Jogar novamente</button>");
+                $('.jogo').html("<span class='winner'> " + localStorage.getItem('p2') + " <br>é o vencedor</span><br><img src='img/winner.png' style='width:50%;'><br>");
 
             }
 
             if (verificaMatrizPreenchida()) {
-                $('.jogo').html("<span class='winner'><br>Velha!</span><br><img src='img/winner.png' style='width:50%;'><br><button type='button' onclick='location.reload()' class='btn btn-primary'>Jogar novamente</button>");
+                $('.jogo').html("<span class='winner'><br>Velha!</span><br><img src='img/winner.png' style='width:50%;'><br>");
             }
         });
 

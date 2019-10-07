@@ -1,6 +1,11 @@
 {
-    "name": "Weight Converter",
-    "short_name": "weight converter",
+    "name": "Jogo da Velha",
+    "short_name": "jogo da velha",
+    "theme_color": "#333333",
+    "background_color": "#dddddd",
+    "display": "standalone",
+    "Scope": "/",
+    "start_url": "/index.html",
     "icons": [{
             "src": "img/icons/icon-72x72.png",
             "sizes": "72x72",
@@ -42,8 +47,5 @@
             "type": "image/png"
         }
     ],
-    "start_url": "/index.html",
-    "display": "standalone",
-    "background_color": "#ddd",
-    "theme_color": "#333"
+    "splash_pages": null
 }

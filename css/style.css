@@ -3,16 +3,6 @@
         flex-wrap: wrap;
         justify-content: center;
     }
-    /* .velha {
-        padding: 30px;
-    }
-    
-    section {
-        width: 100vw;
-        height: 100vh!important;
-        display: flex;
-        align-items: center;
-    } */
     
     .winner {
         width: 100%;
@@ -30,10 +20,6 @@
         -moz-box-sizing: border-box;
         -o-box-sizing: border-box;
     }
-    /* #container {
-        width: 300px;
-        margin: 0 auto;
-    } */
     
     .alinhamento .row div {
         border-left: 5px solid #cccbcb;

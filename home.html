@@ -129,6 +129,8 @@
         let player = Math.floor(Math.random() * 2);
         let aux_player;
 
+        let matrizPreechida = false;
+
         var items = [
             [null, null, null],
             [null, null, null],
@@ -189,20 +191,33 @@
             let verifica = verificaMatriz(aux_player);
 
 
-
             if (verifica.toString() == 0) {
 
                 $('.jogo').html("<span class='winner'> " + localStorage.getItem('p1') + " <br>é o vencedor</span><br><img src='img/winner.png' style='width:50%;'><br><button type='button' onclick='location.reload()' class='btn btn-primary'>Jogar novamente</button>");
 
             }
-
             if (verifica.toString() == 1) {
 
                 $('.jogo').html("<span class='winner'> " + localStorage.getItem('p2') + " <br>é o vencedor</span><br><img src='img/winner.png' style='width:50%;'><br><button type='button' onclick='location.reload()' class='btn btn-primary'>Jogar novamente</button>");
 
             }
 
+            if (verificaMatrizPreenchida()) {
+                $('.jogo').html("<span class='winner'><br>Velha!</span><br><img src='img/winner.png' style='width:50%;'><br><button type='button' onclick='location.reload()' class='btn btn-primary'>Jogar novamente</button>");
+            }
         });
+
+        function verificaMatrizPreenchida() {
+            matrizPreechida = true;
+            items.forEach((element, key) => {
+                element.forEach(element => {
+                    if (element === null) {
+                        matrizPreechida = false;
+                    }
+                });
+            });
+            return matrizPreechida;
+        }
 
         function verificaMatriz(simbolo) {
 

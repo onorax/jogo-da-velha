@@ -112,7 +112,13 @@
         ];
         let player = Math.floor(Math.random() * 2);
         let aux_player;
-        let history = JSON.parse(localStorage.getItem("history"));
+
+        if (JSON.parse(localStorage.getItem("history")) != null) {
+            let history = JSON.parse(localStorage.getItem("history"));
+        } else {
+            let history = [];
+        }
+
         let aux_history = [];
 
         let matrizPreechida = false;

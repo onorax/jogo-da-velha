@@ -75,7 +75,23 @@
 
                 </div>
 
-                <div class="history"></div>
+                <div class="row d-flex justify-content-center" style="padding-top: 4pc;padding-top: 4pc;display: block;">
+
+                    <div class="col-md-12" style="display: flex;justify-content: center;">
+
+                        <h3 style="color: white;padding-bottom: 1pc;">Histórico de partidas</h3>
+
+                    </div>
+                    <div class="col-md-12" style="display: flex;justify-content: center;">
+
+                        <div class="history"></div>
+
+                    </div>
+
+
+
+                </div>
+
             </div>
 
 
@@ -96,7 +112,7 @@
         ];
         let player = Math.floor(Math.random() * 2);
         let aux_player;
-        let history = [];
+        let history = JSON.parse(localStorage.getItem("history"));
         let aux_history = [];
 
         let matrizPreechida = false;
@@ -130,6 +146,13 @@
 
 
             }
+
+            history.forEach(element => {
+                console.log(element);
+
+                $('.history').append("<p>" + element[0] + " VS " + element[1] + ": " + element[2] + " é o vencedor!!!</p>");
+
+            });
 
 
         });
@@ -167,14 +190,18 @@
                 aux_history = [localStorage.getItem('p1'), localStorage.getItem('p2'), localStorage.getItem('p1')];
 
                 history.push(aux_history);
+                console.log(history);
+
                 localStorage.setItem('history', JSON.stringify(history));
             }
             if (verifica.toString() == 1) {
 
                 $('.jogo').html("<span class='winner'> " + localStorage.getItem('p2') + " <br>é o vencedor</span><br><img src='img/winner.png' style='width:50%;'><br>");
                 aux_history = [localStorage.getItem('p2'), localStorage.getItem('p1'), localStorage.getItem('p2')];
+                // $('.history').append("<p>" + localStorage.getItem('p1') + " VS " + localStorage.getItem('p2') + ": " + localStorage.getItem('p2') + " é o vencedor!!!</p>");
 
                 history.push(aux_history);
+                console.log(history);
                 localStorage.setItem('history', JSON.stringify(history));
 
             }

@@ -55,10 +55,9 @@
     section,
     summary {
         display: block;
-        height: 100vh!important;
+        height: auto!important;
     }
-    
-    @media (max-width: 400px) {
+    /* @media (max-width: 400px) {
         article,
         aside,
         details,
@@ -75,4 +74,4 @@
             display: block;
             height: 100%!important;
         }
-    }
+    } */
